@@ -1,0 +1,405 @@
+/* =============================================================
+   jrsnorth.co.uk — styles
+   ============================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  overflow: hidden;
+  background: #008080;
+}
+
+/* -------------------------------------------------------------
+   Desktop
+   ------------------------------------------------------------- */
+
+#desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #008080;
+}
+
+.desktop-icon {
+  position: absolute;
+  width: 72px;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px;
+}
+.desktop-icon:hover .icon-label {
+  background: #000080;
+  color: white;
+}
+.icon-img {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+.icon-label {
+  font-size: 11px;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+  padding: 1px 2px;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+/* -------------------------------------------------------------
+   Windows
+   ------------------------------------------------------------- */
+
+.window {
+  position: absolute;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: 2px 2px 0 #000;
+  min-width: 200px;
+  min-height: 120px;
+  display: none;
+  flex-direction: column;
+}
+
+.window-titlebar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: white;
+  padding: 3px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  font-size: 11px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.window-titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.titlebar-icon { font-size: 14px; }
+
+.window-controls { display: flex; gap: 2px; }
+
+.win-btn {
+  width: 16px;
+  height: 14px;
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+  cursor: pointer;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial;
+  color: #000;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.win-btn:active { border-color: #808080 #fff #fff #808080; }
+
+.window-menubar {
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  padding: 2px 4px;
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+}
+.menu-item {
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+.menu-item:hover { background: #000080; color: white; }
+
+.window-content {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+  background: #c0c0c0;
+}
+
+.window-statusbar {
+  background: #c0c0c0;
+  border-top: 1px solid #808080;
+  padding: 2px 6px;
+  font-size: 10px;
+  color: #444;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.status-panel {
+  border: 1px solid;
+  border-color: #808080 #fff #fff #808080;
+  padding: 1px 4px;
+  flex: 1;
+}
+
+.resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  cursor: se-resize;
+  background:
+    linear-gradient(135deg, transparent 40%, #808080 40%, #808080 55%, transparent 55%),
+    linear-gradient(135deg, transparent 60%, #808080 60%, #808080 75%, transparent 75%);
+}
+
+/* -------------------------------------------------------------
+   Taskbar
+   ------------------------------------------------------------- */
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  z-index: 9999;
+}
+
+.start-btn {
+  height: 26px;
+  padding: 0 10px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.start-btn:active { border-color: #808080 #fff #fff #808080; }
+
+#taskbar-buttons {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.taskbar-btn {
+  height: 26px;
+  padding: 0 8px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: Arial;
+}
+.taskbar-btn.inactive { border-color: #fff #808080 #808080 #fff; }
+.taskbar-btn.active   { border-color: #808080 #fff #fff #808080; background: #b0b0b0; }
+
+.clock {
+  margin-left: auto;
+  height: 26px;
+  padding: 0 8px;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  min-width: 64px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------
+   Start menu
+   ------------------------------------------------------------- */
+
+.start-menu {
+  position: fixed;
+  bottom: 34px;
+  left: 4px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  box-shadow: 2px 2px 0 #000;
+  display: none;
+  z-index: 10000;
+  min-width: 180px;
+}
+.start-menu.open { display: flex; }
+
+.start-menu-sidebar {
+  width: 22px;
+  background: #000080;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #c0c0c0;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 6px 2px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.start-menu-items { flex: 1; padding: 2px 0; }
+.start-menu-item {
+  padding: 5px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.start-menu-item:hover { background: #000080; color: white; }
+.start-menu-divider { border-top: 1px solid #808080; margin: 2px 0; }
+
+/* -------------------------------------------------------------
+   Retro UI components
+   ------------------------------------------------------------- */
+
+.inset-box {
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  background: white;
+  padding: 4px;
+}
+.outset-box {
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  padding: 4px;
+}
+.retro-btn {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  padding: 3px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: Arial;
+}
+.retro-btn:active { border-color: #808080 #fff #fff #808080; }
+
+.retro-input {
+  background: white;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  padding: 3px 5px;
+  font-size: 11px;
+  font-family: Arial;
+  width: 100%;
+}
+.retro-textarea {
+  background: white;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  padding: 5px;
+  font-size: 11px;
+  font-family: Arial;
+  width: 100%;
+  resize: none;
+}
+
+.list-item {
+  padding: 4px 8px;
+  border-bottom: 1px solid #b0b0b0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+.list-item:hover { background: #000080; color: white; }
+
+.project-item {
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  padding: 7px;
+  margin-bottom: 6px;
+  background: #d4d0c8;
+  cursor: pointer;
+}
+.project-item:hover              { background: #000080; color: white; }
+.project-item:hover .project-meta { color: #aaaaff; }
+
+.progress-bar-outer {
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  height: 16px;
+  background: white;
+  margin: 4px 0;
+}
+.progress-bar-inner {
+  height: 100%;
+  background: #000080;
+  transition: width 0.15s;
+}
+
+/* -------------------------------------------------------------
+   Easter eggs
+   ------------------------------------------------------------- */
+
+.bsod {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000080;
+  color: white;
+  z-index: 99999;
+  padding: 60px 80px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  cursor: pointer;
+}
+.bsod h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  background: #aaaaaa;
+  color: #000080;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+#konami-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: #000;
+  color: #00ff00;
+  font-family: monospace;
+  padding: 30px 40px;
+  font-size: 13px;
+  overflow: auto;
+  line-height: 1.8;
+  cursor: pointer;
+}
