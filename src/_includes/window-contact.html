@@ -1,4 +1,4 @@
-<div class="window" id="win-contact" style="top:65px; left:110px; width:380px; height:330px">
+<div class="window" id="win-contact" style="top:65px; left:110px; width:380px; height:360px">
   <div class="window-titlebar" onmousedown="startDrag(event,'contact')">
     <div class="window-titlebar-left"><span class="titlebar-icon">📧</span> Contact</div>
     <div class="window-controls">
@@ -11,12 +11,35 @@
     <div class="menu-item">File</div>
     <div class="menu-item">Send</div>
   </div>
-  <div class="window-content">
-    <form id="contact-form"
-      action="https://formspree.io/f/YOUR_FORM_ID"
-      method="POST"
-      onsubmit="handleContactSubmit(event)"
-      style="display:grid; gap:8px">
+  <div class="window-content" style="position:relative">
+
+    <!-- Confirmation dialog -->
+    <div id="contact-dialog" style="
+      display:none; position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      background:#c0c0c0; border:2px solid;
+      border-color:#fff #808080 #808080 #fff;
+      box-shadow:2px 2px 0 #000;
+      width:260px; z-index:999;
+    ">
+      <div style="
+        background:linear-gradient(90deg,#000080,#1084d0);
+        color:white; padding:3px 6px; font-size:11px; font-weight:bold;
+        display:flex; justify-content:space-between; align-items:center;
+      ">
+        <span>✉ Message</span>
+        <div class="win-btn" onclick="document.getElementById('contact-dialog').style.display='none'">✕</div>
+      </div>
+      <div style="padding:16px 12px; display:flex; gap:12px; align-items:flex-start">
+        <span style="font-size:24px">📨</span>
+        <div id="contact-dialog-msg" style="font-size:11px; line-height:1.6"></div>
+      </div>
+      <div style="padding:0 12px 12px; text-align:center">
+        <button class="retro-btn" onclick="document.getElementById('contact-dialog').style.display='none'">OK</button>
+      </div>
+    </div>
+
+    <form id="contact-form" style="display:grid; gap:8px">
       <div>
         <div style="font-size:10px; margin-bottom:3px">From:</div>
         <input class="retro-input" type="email" name="email" placeholder="your@email.com" required>
@@ -29,15 +52,45 @@
         <div style="font-size:10px; margin-bottom:3px">Message:</div>
         <textarea class="retro-textarea" name="message" rows="5" placeholder="Say hello..." required></textarea>
       </div>
-      <div style="display:flex; gap:8px; justify-content:flex-end; align-items:center">
-        <div id="contact-feedback" style="font-size:11px; flex:1"></div>
+      <div style="display:flex; gap:8px; justify-content:flex-end">
         <button type="button" class="retro-btn" onclick="document.getElementById('contact-form').reset()">Clear</button>
         <button type="submit" class="retro-btn">Send ✉</button>
       </div>
     </form>
   </div>
   <div class="window-statusbar">
-    <div class="status-panel">Replace YOUR_FORM_ID with your Formspree ID</div>
+    <div class="status-panel">📧 Get in touch</div>
   </div>
   <div class="resize-handle" onmousedown="startResize(event,'contact')"></div>
 </div>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const dialog = document.getElementById('contact-dialog');
+    const msg = document.getElementById('contact-dialog-msg');
+    const submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch('https://formspree.io/f/mykqnpgy', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    }).then(r => {
+      if (r.ok) {
+        msg.textContent = 'Thanks for getting in touch!';
+        form.reset();
+      } else {
+        msg.textContent = 'Something went wrong. Please try again.';
+      }
+    }).catch(() => {
+      msg.textContent = 'Something went wrong. Please try again.';
+    }).finally(() => {
+      dialog.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send ✉';
+    });
+  });
+</script>
