@@ -1,0 +1,24 @@
+<div class="window" id="win-links" style="top:70px; left:60px; width:300px; height:300px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'links')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">🔗</span> Links</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('links')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('links')">□</div>
+      <div class="win-btn" onclick="closeWindow('links')">✕</div>
+    </div>
+  </div>
+  <div class="window-menubar">
+    <div class="menu-item">File</div>
+    <div class="menu-item">Favorites</div>
+  </div>
+  <div class="window-content" style="padding:0">
+    <div id="links-list"></div>
+    <div class="list-item" style="border-top:2px solid #808080; font-style:italic; color:#666; cursor:default">
+      🔒 Secret link (find it yourself)
+    </div>
+  </div>
+  <div class="window-statusbar">
+    <div class="status-panel" id="links-status">0 links</div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'links')"></div>
+</div>

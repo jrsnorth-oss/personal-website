@@ -1,0 +1,35 @@
+<div class="window" id="win-music" style="top:50px; left:80px; width:400px; height:320px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'music')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">🎵</span> Music.exe</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('music')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('music')">□</div>
+      <div class="win-btn" onclick="closeWindow('music')">✕</div>
+    </div>
+  </div>
+  <div class="window-menubar">
+    <div class="menu-item">File</div>
+    <div class="menu-item">Play</div>
+    <div class="menu-item">Help</div>
+  </div>
+  <div class="window-content">
+    <div class="outset-box" style="margin-bottom:8px; text-align:center; background:#000; color:#00ff00; padding:10px; font-family:monospace">
+      <div id="music-track" style="font-size:13px">♪ no track selected</div>
+      <div id="music-status" style="font-size:10px; color:#008800; margin-top:4px">STOPPED</div>
+    </div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="music-progress" style="width:0%"></div>
+    </div>
+    <div style="display:flex; justify-content:center; gap:8px; margin:10px 0">
+      <button class="retro-btn" onclick="musicPrev()">⏮ Prev</button>
+      <button class="retro-btn" id="play-btn" onclick="musicPlay()">▶ Play</button>
+      <button class="retro-btn" onclick="musicNext()">Next ⏭</button>
+    </div>
+    <div id="tracklist"></div>
+  </div>
+  <div class="window-statusbar">
+    <div class="status-panel">🎵 Music Player v1.0</div>
+    <div class="status-panel">Edit tracks in js/content.js</div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'music')"></div>
+</div>

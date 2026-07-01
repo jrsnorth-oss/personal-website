@@ -1,0 +1,21 @@
+<div class="window" id="win-snake" style="top:60px; left:80px; width:320px; height:380px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'snake')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">🐍</span> snake.exe</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('snake')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('snake')">□</div>
+      <div class="win-btn" onclick="closeWindow('snake')">✕</div>
+    </div>
+  </div>
+  <div class="window-content" style="display:flex; flex-direction:column; align-items:center; gap:8px">
+    <div style="display:flex; justify-content:space-between; width:280px; font-size:11px">
+      <span>Score: <b id="snake-score">0</b></span>
+      <span>Best: <b id="snake-hi">0</b></span>
+    </div>
+    <canvas id="snake-canvas" width="280" height="252"
+      style="border:2px solid; border-color:#808080 #fff #fff #808080; background:#000; display:block"></canvas>
+    <div style="font-size:10px; color:#555; text-align:center">Arrow keys or WASD to move</div>
+    <button class="retro-btn" id="snake-start-btn" onclick="startSnake()">▶ Start Game</button>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'snake')"></div>
+</div>

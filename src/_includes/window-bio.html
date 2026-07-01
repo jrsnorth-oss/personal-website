@@ -1,0 +1,21 @@
+<div class="window" id="win-bio" style="top:40px; left:120px; width:380px; height:340px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'bio')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">👤</span> About.txt — Notepad</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('bio')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('bio')">□</div>
+      <div class="win-btn" onclick="closeWindow('bio')">✕</div>
+    </div>
+  </div>
+  <div class="window-menubar">
+    <div class="menu-item">File</div>
+    <div class="menu-item">Edit</div>
+    <div class="menu-item">Format</div>
+  </div>
+  <div class="window-content" style="padding:0">
+    <textarea id="bio-text" class="retro-textarea"
+      style="height:100%; border:none; padding:10px; font-family:'Courier New',monospace; font-size:11px; line-height:1.7"
+      readonly></textarea>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'bio')"></div>
+</div>

@@ -1,0 +1,43 @@
+<div class="window" id="win-contact" style="top:65px; left:110px; width:380px; height:330px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'contact')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">📧</span> Contact</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('contact')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('contact')">□</div>
+      <div class="win-btn" onclick="closeWindow('contact')">✕</div>
+    </div>
+  </div>
+  <div class="window-menubar">
+    <div class="menu-item">File</div>
+    <div class="menu-item">Send</div>
+  </div>
+  <div class="window-content">
+    <form id="contact-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      onsubmit="handleContactSubmit(event)"
+      style="display:grid; gap:8px">
+      <div>
+        <div style="font-size:10px; margin-bottom:3px">From:</div>
+        <input class="retro-input" type="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div>
+        <div style="font-size:10px; margin-bottom:3px">Subject:</div>
+        <input class="retro-input" type="text" name="subject" placeholder="What's this about?">
+      </div>
+      <div>
+        <div style="font-size:10px; margin-bottom:3px">Message:</div>
+        <textarea class="retro-textarea" name="message" rows="5" placeholder="Say hello..." required></textarea>
+      </div>
+      <div style="display:flex; gap:8px; justify-content:flex-end; align-items:center">
+        <div id="contact-feedback" style="font-size:11px; flex:1"></div>
+        <button type="button" class="retro-btn" onclick="document.getElementById('contact-form').reset()">Clear</button>
+        <button type="submit" class="retro-btn">Send ✉</button>
+      </div>
+    </form>
+  </div>
+  <div class="window-statusbar">
+    <div class="status-panel">Replace YOUR_FORM_ID with your Formspree ID</div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'contact')"></div>
+</div>

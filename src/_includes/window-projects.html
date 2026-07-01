@@ -1,0 +1,23 @@
+<div class="window" id="win-projects" style="top:60px; left:100px; width:440px; height:360px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'projects')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">💾</span> Projects</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('projects')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('projects')">□</div>
+      <div class="win-btn" onclick="closeWindow('projects')">✕</div>
+    </div>
+  </div>
+  <div class="window-menubar">
+    <div class="menu-item">File</div>
+    <div class="menu-item">View</div>
+    <div class="menu-item">Sort</div>
+  </div>
+  <div class="window-content">
+    <div style="font-size:10px; color:#555; margin-bottom:8px" id="projects-status">0 projects</div>
+    <div id="projects-list"></div>
+  </div>
+  <div class="window-statusbar">
+    <div class="status-panel" id="projects-count">Edit projects in js/content.js</div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'projects')"></div>
+</div>

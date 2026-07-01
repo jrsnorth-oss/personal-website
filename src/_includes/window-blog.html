@@ -1,0 +1,26 @@
+<div class="window" id="win-blog" style="top:55px; left:90px; width:420px; height:350px">
+  <div class="window-titlebar" onmousedown="startDrag(event,'blog')">
+    <div class="window-titlebar-left"><span class="titlebar-icon">📝</span> Blog</div>
+    <div class="window-controls">
+      <div class="win-btn" onclick="minimizeWindow('blog')">_</div>
+      <div class="win-btn" onclick="maximizeWindow('blog')">□</div>
+      <div class="win-btn" onclick="closeWindow('blog')">✕</div>
+    </div>
+  </div>
+  <div class="window-menubar">
+    <div class="menu-item">File</div>
+    <div class="menu-item">View</div>
+    <div class="menu-item">Archive</div>
+  </div>
+  <div class="window-content" style="padding:0">
+    <div id="blog-list"></div>
+    <div id="blog-post" style="display:none; padding:10px">
+      <button class="retro-btn" onclick="closeBlogPost()" style="margin-bottom:10px">← Back</button>
+      <div id="post-content"></div>
+    </div>
+  </div>
+  <div class="window-statusbar">
+    <div class="status-panel" id="blog-status">0 posts</div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'blog')"></div>
+</div>
